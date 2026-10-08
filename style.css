@@ -1,0 +1,955 @@
+:root {
+    --um-red: #b00000;
+    --um-dark-red: #780000;
+    --um-deep: #300000;
+    --um-gold: #f0c400;
+    --bg: #f7f4ef;
+    --white: #ffffff;
+    --text: #2d2d2d;
+    --muted: #777;
+    --border: #e4ded5;
+    --green: #238636;
+    --orange: #c77700;
+    --danger: #c62828;
+    --shadow: 0 4px 16px rgba(48, 0, 0, 0.10);
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+body { 
+    background: var(--bg); 
+    color: var(--text); 
+}
+
+button, input, select, textarea { 
+    font: inherit; 
+}
+
+button, a { 
+    -webkit-tap-highlight-color: transparent; 
+}
+
+/* ============================================
+   LOGIN PAGE STYLES
+   ============================================ */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--um-deep), var(--um-red));
+}
+
+.login-box {
+    width: 420px;
+    max-width: 100%;
+    background: var(--white);
+    padding: 36px;
+    border-radius: 14px;
+    box-shadow: 0 16px 45px rgba(0,0,0,.28);
+    text-align: center;
+    border-top: 5px solid var(--um-gold);
+}
+
+.logo-frame {
+    background: #000;
+    border-radius: 8px;
+    padding: 8px;
+    display: inline-block;
+}
+
+.login-logo {
+    width: 245px;
+    max-width: 100%;
+    display: block;
+}
+
+.login-box h1 {
+    color: var(--um-red);
+    font-size: 24px;
+    margin: 18px 0 6px;
+}
+
+.login-subtitle {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+/* ============================================
+   FORM ELEMENTS
+   ============================================ */
+.form-label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin: 14px 0 7px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    outline: none;
+    background: #fff;
+}
+
+.form-control:focus {
+    border-color: var(--um-red);
+    box-shadow: 0 0 0 3px rgba(176,0,0,.10);
+}
+
+textarea.form-control {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.login-button {
+    width: 100%;
+    border: 0;
+    background: var(--um-red);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+    margin-top: 23px;
+}
+
+.login-button:hover {
+    background: var(--um-dark-red);
+}
+
+.primary-button {
+    border: 0;
+    background: var(--um-red);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.primary-button:hover {
+    background: var(--um-dark-red);
+}
+
+.secondary-button {
+    border: 0;
+    background: #777;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.secondary-button:hover {
+    background: #555;
+}
+
+.edit-button {
+    border: 0;
+    color: #fff;
+    padding: 7px 11px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background: #8b5a00;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.edit-button:hover {
+    background: #694400;
+}
+
+.delete-button {
+    border: 0;
+    color: #fff;
+    padding: 7px 11px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background: var(--danger);
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.delete-button:hover {
+    background: #9e1e1e;
+}
+
+/* ============================================
+   ERROR & DEMO TEXT
+   ============================================ */
+.error-message {
+    color: var(--danger);
+    min-height: 18px;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.demo {
+    margin-top: 18px;
+    font-size: 12px;
+    color: #888;
+}
+
+/* ============================================
+   APP LAYOUT - SIDEBAR
+   ============================================ */
+.layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    position: fixed;
+    inset: 0 auto 0 0;
+    background: linear-gradient(180deg, #360000, #160000);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    border-right: 3px solid var(--um-gold);
+}
+
+.sidebar-logo {
+    padding: 18px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.sidebar-logo .logo-frame {
+    max-width: 210px;
+    background: transparent;
+    padding: 0;
+}
+
+.sidebar-logo img {
+    width: 100%;
+    display: block;
+}
+
+.university-name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 9px;
+    line-height: 1.3;
+}
+
+.system-name {
+    color: #ddd;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.menu {
+    padding-top: 15px;
+    flex: 1;
+}
+
+.menu button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    text-align: left;
+    padding: 15px 24px;
+    cursor: pointer;
+    transition: .2s;
+    font-size: 15px;
+}
+
+.menu button:hover {
+    background: var(--um-red);
+}
+
+.menu button.active {
+    background: var(--um-red);
+    border-left: 4px solid var(--um-gold);
+    padding-left: 20px;
+}
+
+.logout {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    text-align: left;
+    padding: 15px 24px;
+    cursor: pointer;
+    transition: .2s;
+    font-size: 15px;
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.logout:hover {
+    background: var(--danger);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+    margin-left: 250px;
+    padding: 28px;
+    flex: 1;
+    min-height: 100vh;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.topbar h1 {
+    color: var(--um-red);
+    margin-bottom: 5px;
+    font-size: 28px;
+}
+
+.topbar p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.admin {
+    background: #fff;
+    padding: 11px 17px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+}
+
+/* ============================================
+   DASHBOARD CARDS
+   ============================================ */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-top: 3px solid var(--um-red);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(48, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 31px;
+}
+
+.card p {
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.card h2 {
+    color: var(--um-red);
+    font-size: 24px;
+}
+
+/* Dashboard specific card variations */
+.warning-card {
+    border-top-color: var(--um-gold);
+}
+
+.warning-card h2 {
+    color: var(--orange);
+}
+
+.success-card {
+    border-top-color: var(--green);
+}
+
+.success-card h2 {
+    color: var(--green);
+}
+
+.info-card {
+    border-top-color: #2196F3;
+}
+
+.info-card h2 {
+    color: #2196F3;
+}
+
+/* ============================================
+   CONTENT BOXES
+   ============================================ */
+.content-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 22px;
+    overflow-x: auto;
+}
+
+.warning-box {
+    border-left: 4px solid var(--orange);
+    background: #fffcf5;
+}
+
+.warning-box h3 {
+    color: var(--orange);
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.form-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 28px;
+    max-width: 900px;
+}
+
+.form-box h2 {
+    color: var(--um-red);
+    margin-bottom: 22px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.section-header h2 {
+    margin-bottom: 5px;
+    color: var(--um-deep);
+}
+
+.section-header p {
+    color: var(--muted);
+}
+
+.inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.inventory-header h2 {
+    margin-bottom: 5px;
+    color: var(--um-deep);
+}
+
+.inventory-header p {
+    color: var(--muted);
+}
+
+/* ============================================
+   FORM ROWS
+   ============================================ */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 8px;
+}
+
+/* ============================================
+   TABLE
+   ============================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 680px;
+}
+
+thead {
+    background: #f4eee4;
+}
+
+th {
+    text-align: left;
+    padding: 13px;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+td {
+    padding: 13px;
+    border-top: 1px solid #eee8df;
+    font-size: 14px;
+}
+
+tr:hover td {
+    background: #fffaf2;
+}
+
+table tfoot td {
+    font-weight: bold;
+    border-top: 2px solid var(--border);
+    background: #f8f5f0;
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.available {
+    background: #dcf5e1;
+    color: var(--green);
+}
+
+.low_stock {
+    background: #fff0c2;
+    color: var(--orange);
+}
+
+.out_of_stock {
+    background: #ffdcdc;
+    color: var(--danger);
+}
+
+/* Legacy status classes (for backward compatibility) */
+.low {
+    background: #fff0c2;
+    color: var(--orange);
+}
+
+.out {
+    background: #ffdcdc;
+    color: var(--danger);
+}
+
+.text-danger {
+    color: var(--danger);
+}
+
+.text-success {
+    color: var(--green);
+}
+
+.text-warning {
+    color: var(--orange);
+}
+
+/* ============================================
+   SEARCH
+   ============================================ */
+.search {
+    width: 300px;
+    max-width: 100%;
+    padding: 11px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    outline: none;
+    margin-bottom: 18px;
+}
+
+.search:focus {
+    border-color: var(--um-red);
+}
+
+.search-form {
+    margin-bottom: 10px;
+}
+
+/* ============================================
+   ALERTS
+   ============================================ */
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+.alert-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty {
+    text-align: center;
+    padding: 28px;
+    color: var(--muted);
+}
+
+/* ============================================
+   ORDER INFO
+   ============================================ */
+.order-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+    background: #f8f5f0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.order-info div {
+    padding: 5px 0;
+}
+
+.order-info strong {
+    color: var(--um-deep);
+}
+
+/* ============================================
+   INVENTORY VALUE
+   ============================================ */
+.inventory-value {
+    font-size: 18px;
+    color: var(--um-red);
+}
+
+/* ============================================
+   RECENT ITEMS SECTION
+   ============================================ */
+.recent-items {
+    margin-top: 10px;
+}
+
+.recent-items .item-name {
+    font-weight: 500;
+}
+
+.recent-items .item-category {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ============================================
+   DASHBOARD STATS
+   ============================================ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.stat-item .stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--um-red);
+}
+
+.stat-item .stat-label {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablets and smaller laptops */
+@media (max-width: 1200px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Small laptops */
+@media (max-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    /* Sidebar becomes icon-only */
+    .sidebar {
+        width: 70px;
+    }
+    
+    .sidebar-logo {
+        padding: 10px 7px;
+    }
+    
+    .sidebar-logo .logo-frame {
+        max-width: 55px;
+    }
+    
+    .university-name,
+    .system-name {
+        display: none;
+    }
+    
+    .menu button {
+        font-size: 0;
+        text-align: center;
+        padding: 18px 5px;
+    }
+    
+    .menu button::first-letter {
+        font-size: 20px;
+    }
+    
+    .menu button.active {
+        padding-left: 5px;
+        border-left: 0;
+        border-right: 4px solid var(--um-gold);
+    }
+    
+    .logout {
+        font-size: 0;
+        text-align: center;
+        padding: 18px 5px;
+    }
+    
+    .logout::first-letter {
+        font-size: 20px;
+    }
+    
+    .main-content {
+        margin-left: 70px;
+        padding: 15px;
+    }
+    
+    .topbar h1 {
+        font-size: 22px;
+    }
+    
+    .cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    
+    .card {
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .card-icon {
+        font-size: 28px;
+    }
+    
+    .card h2 {
+        font-size: 20px;
+    }
+    
+    .content-box {
+        padding: 16px;
+    }
+    
+    .search {
+        width: 100%;
+    }
+    
+    .inventory-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .form-buttons .primary-button,
+    .form-buttons .secondary-button {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 24px 20px;
+    }
+    
+    .login-logo {
+        width: 180px;
+    }
+    
+    .login-box h1 {
+        font-size: 20px;
+    }
+    
+    .login-subtitle {
+        font-size: 13px;
+    }
+    
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .admin {
+        width: 100%;
+        text-align: center;
+    }
+    
+    table {
+        min-width: 500px;
+        font-size: 12px;
+    }
+    
+    th, td {
+        padding: 8px 10px;
+    }
+    
+    .edit-button,
+    .delete-button {
+        padding: 5px 8px;
+        font-size: 11px;
+    }
+    
+    .order-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item .stat-number {
+        font-size: 26px;
+    }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+    .sidebar {
+        width: 55px;
+    }
+    
+    .main-content {
+        margin-left: 55px;
+        padding: 10px;
+    }
+    
+    .sidebar-logo .logo-frame {
+        max-width: 40px;
+    }
+    
+    .menu button {
+        padding: 14px 3px;
+    }
+    
+    .menu button::first-letter {
+        font-size: 16px;
+    }
+    
+    .logout {
+        padding: 14px 3px;
+    }
+    
+    .logout::first-letter {
+        font-size: 16px;
+    }
+}
